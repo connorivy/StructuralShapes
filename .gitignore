@@ -1,0 +1,6 @@
+# Ignore all bin and obj folders
+**/bin/
+**/obj/
+
+# Ignore generated files
+src/StructuralShapes/Lib/
