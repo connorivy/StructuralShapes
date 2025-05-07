@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/assets/" />
+  <Folder Name="/assets/ShapeDatabases/" />
+  <Folder Name="/assets/ShapeDatabases/AISC/">
+    <File Path="assets/ShapeDatabases/AISC/aisc-shapes-database-v16.0.xlsx" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Packages.props" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/StructuralShapes/StructuralShapes.csproj" />
+    <File Path="src/StucturalShapesGenerator.py" />
+  </Folder>
+</Solution>
