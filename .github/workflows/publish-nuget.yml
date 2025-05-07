@@ -1,0 +1,46 @@
+name: Publish NuGet Package
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '7.x'
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install Python dependencies
+      run: pip install -r requirements.txt
+
+    - name: Run StructuralShapesGenerator
+      run: python src/StucturalShapesGenerator.py
+
+    - name: Restore dependencies
+      run: dotnet restore src/StructuralShapes/StructuralShapes.csproj
+
+    - name: Build project
+      run: dotnet build src/StructuralShapes/StructuralShapes.csproj --configuration Release
+
+    - name: Pack NuGet package
+      run: |
+        VERSION=$(echo $GITHUB_REF | sed 's/refs\/tags\///')
+        dotnet pack src/StructuralShapes/StructuralShapes.csproj --configuration Release --output ./nupkg /p:PackageVersion=$VERSION
+
+    - name: Publish to NuGet
+      env:
+        NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+      run: dotnet nuget push ./nupkg/*.nupkg --api-key $NUGET_API_KEY --source https://api.nuget.org/v3/index.json
