@@ -1,4 +1,6 @@
-﻿namespace StructuralShapes.Contracts;
+﻿using UnitsNet;
+
+namespace StructuralShapes.Contracts;
 
 public interface ISectionProfile
 {

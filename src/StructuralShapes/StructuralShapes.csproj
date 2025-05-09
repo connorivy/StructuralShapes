@@ -18,4 +18,8 @@
     <Folder Include="Lib\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="UnitsNet" />
+  </ItemGroup>
+
 </Project>

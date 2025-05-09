@@ -102,17 +102,17 @@ public static partial class WShapes
     ) => new()
     {
         Name = name,
-        W = new ForcePerLength(w, ForcePerLengthUnit.PoundForcePerFoot),
-        A = new Area(a, AreaUnit.SquareInch),
-        d = new Length(d, LengthUnit.Inch),
-        tw = new Length(tw, LengthUnit.Inch),
-        tf = new Length(tf, LengthUnit.Inch),
-        bf = new Length(bf, LengthUnit.Inch),
-        Ix = new AreaMomentOfInertia(ix, AreaMomentOfInertiaUnit.InchToTheFourth),
-        Iy = new AreaMomentOfInertia(iy, AreaMomentOfInertiaUnit.InchToTheFourth),
-        J = new AreaMomentOfInertia(j, AreaMomentOfInertiaUnit.InchToTheFourth),
-        Zx = new Volume(zx, VolumeUnit.CubicInch),
-        Zy = new Volume(zy, VolumeUnit.CubicInch)
+        W = UnitsNet.ForcePerLength.FromPoundsForcePerFoot(w),
+        A = UnitsNet.Area.FromSquareInches(a),
+        d = UnitsNet.Length.FromInches(d),
+        tw = UnitsNet.Length.FromInches(tw),
+        tf = UnitsNet.Length.FromInches(tf),
+        bf = UnitsNet.Length.FromInches(bf),
+        Ix = UnitsNet.AreaMomentOfInertia.FromInchesToTheFourth(ix),
+        Iy = UnitsNet.AreaMomentOfInertia.FromInchesToTheFourth(iy),
+        J = UnitsNet.AreaMomentOfInertia.FromInchesToTheFourth(j),
+        Zx = UnitsNet.Volume.FromCubicInches(zx),
+        Zy = UnitsNet.Volume.FromCubicInches(zy)
     };
  
 """)
